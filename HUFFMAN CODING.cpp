@@ -1,4 +1,3 @@
-// Huffman Coding in C++
 
 #include <iostream>
 using namespace std;
@@ -17,7 +16,7 @@ struct MinH {
   struct MinHNode **array;
 };
 
-// Creating Huffman tree node
+
 struct MinHNode *newNode(char item, unsigned freq) {
   struct MinHNode *temp = (struct MinHNode *)malloc(sizeof(struct MinHNode));
 
@@ -28,7 +27,6 @@ struct MinHNode *newNode(char item, unsigned freq) {
   return temp;
 }
 
-// Create min heap using given capacity
 struct MinH *createMinH(unsigned capacity) {
   struct MinH *minHeap = (struct MinH *)malloc(sizeof(struct MinH));
   minHeap->size = 0;
@@ -37,7 +35,6 @@ struct MinH *createMinH(unsigned capacity) {
   return minHeap;
 }
 
-// Print the array
 void printArray(int arr[], int n) {
   int i;
   for (i = 0; i < n; ++i)
@@ -46,14 +43,13 @@ void printArray(int arr[], int n) {
   cout << "\n";
 }
 
-// Swap function
 void swapMinHNode(struct MinHNode **a, struct MinHNode **b) {
   struct MinHNode *t = *a;
   *a = *b;
   *b = t;
 }
 
-// Heapify
+
 void minHeapify(struct MinH *minHeap, int idx) {
   int smallest = idx;
   int left = 2 * idx + 1;
@@ -72,12 +68,11 @@ void minHeapify(struct MinH *minHeap, int idx) {
   }
 }
 
-// Check if size if 1
 int checkSizeOne(struct MinH *minHeap) {
   return (minHeap->size == 1);
 }
 
-// Extract the min
+
 struct MinHNode *extractMin(struct MinH *minHeap) {
   struct MinHNode *temp = minHeap->array[0];
   minHeap->array[0] = minHeap->array[minHeap->size - 1];
@@ -88,7 +83,6 @@ struct MinHNode *extractMin(struct MinH *minHeap) {
   return temp;
 }
 
-// Insertion
 void insertMinHeap(struct MinH *minHeap, struct MinHNode *minHeapNode) {
   ++minHeap->size;
   int i = minHeap->size - 1;
@@ -101,7 +95,6 @@ void insertMinHeap(struct MinH *minHeap, struct MinHNode *minHeapNode) {
   minHeap->array[i] = minHeapNode;
 }
 
-// BUild min heap
 void buildMinHeap(struct MinH *minHeap) {
   int n = minHeap->size - 1;
   int i;
